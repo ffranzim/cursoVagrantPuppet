@@ -1,0 +1,11 @@
+vagrant up --> Para subir a máquina definida no Vagrantfile
+vagrant ssh --> para connectar nela
+vagrant reload --> reinicia a máquina
+vagrant destroy --> destroi a máquina
+
+vagrant status
+
+vagrant halt --> derruba a máquina
+vagrant ssh-config --> lista as configurações
+
+vagrant init hashicorp/precise32 --> Cria um arquivo Vagrantfile inicial
