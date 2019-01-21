@@ -45,3 +45,15 @@ file { "/var/lib/tomcat7/webapps/vraptor-musicjungle.war":
     require => Package ["tomcat7"],
     notify => Service ["tomcat7"]
 }
+
+file_line { "production":
+    file => "/etc/default/tomcat7",
+    line => "JAVA_OPTS=\"\$JAVA_OPTS -Dbr.com.caelum.vraptor.environment=production\""
+}
+
+define file_line($file, $line) {
+    exec { "/bin/echo '${line}' >> '${file}'":
+        unless => "/bin/grep -qFX '${line}' '${file}'"
+    }
+}
+
